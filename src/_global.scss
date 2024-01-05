@@ -40,22 +40,45 @@ body {
     background-size: cover;
     background-color: #FF7979;
     margin: 0;
-    min-width: u.rem(400);
+    // min-width: u.rem(400);
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
     display: flex;
     place-items: center;
+
+    @media (width <= u.em(400)) {
+        background-image: url(/bg-intro-mobile.png);
+        background-size: cover;
+        background-repeat: repeat;
+    }
 }
 
 .intro {
-    display: flex;
+    // display: flex;
     align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // column-gap: u.rem(45);
+    justify-content: center;
+
+    @media (width <= u.em(1110)) {
+        grid-template-columns: 1fr;
+        gap: u.rem(64);
+        margin: 0 u.rem(24);
+        margin-block: u.rem(88) u.rem(68);
+    }
 
     &__text {
         width: u.rem(525);
         height: auto;
         color: #FFFFFF;
-        margin-right: u.rem(45);
+        // margin-right: u.rem(45);
+
+        @media (width <= u.em(1110)) {
+            text-align: center;
+            margin: auto;
+        }
     }
 
     &__heading {
@@ -71,6 +94,10 @@ body {
         font-weight: 400;
         line-height: 1.6;
         margin: 0;
+    }
+
+    &__form {
+        
     }
 
     &__proposition {
@@ -120,6 +147,11 @@ body {
             color: var(--c-white);
             letter-spacing: u.rem(1);
             margin-bottom: u.rem(8);
+        }
+
+        button:hover {
+           cursor: pointer; 
+           background-color: #77E2B3;
         }
 
         p {
